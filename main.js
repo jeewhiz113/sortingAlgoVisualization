@@ -6,6 +6,8 @@ var pen = canvas.getContext('2d');
 
 var rectArray=[]; //just to test it.
 var colorArray=[];
+var actionsArray=[];
+
 //function to generate a random number:
 function randomInteger(low, high){
 	//returns a random integer in the range [low, high] inclusive.
@@ -13,11 +15,11 @@ function randomInteger(low, high){
 	
 }
 
-function generateArray(){
-	for (var i = 0; i<=30; i++){
+function generateArray(a){
+	for (var i = 0; i<=a; i++){
 		rectArray[i] = randomInteger(30, 600);
 	}
-	for (var i = 0; i <= 30; i++){
+	for (var i = 0; i <= a; i++){
 		colorArray[i] = DEFAULT_COLOR;
 	}
 }
@@ -45,12 +47,9 @@ function drawArray(canvas, array, colors){ //canvas here is important? maybe we'
 		ctx.fillRect(x, canvas.height-array[i], barWidth, array[i]);
 		x += barWidth+spacing;
 	}
-	
-	
 }
-generateArray();
-for (var i = 0; i <=100; i++){
-	console.log(rectArray[i]);
-	console.log(colorArray[i]);
-}
-drawArray(canvas, rectArray, colorArray);
+//Now I wish to populate the actions array.
+
+
+generateArray(500);//generate an array of 
+
