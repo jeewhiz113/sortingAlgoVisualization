@@ -145,10 +145,10 @@ class AnimateArray{
 
 
 //OK SO FAR SO GOOD!
-generateArray(500);
+generateArray(80);
 var Animate = new AnimateArray(rectArray, canvas);
 Animate.selectionSort();
 window.setInterval(function(){
     Animate.step();
-}, 1);
+}, 10);
 
