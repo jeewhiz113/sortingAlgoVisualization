@@ -1,4 +1,13 @@
 
+/*
+A few things to do:
+1. Try to do the merge/quick sort algorithm
+2. Try to add the drag bar
+3. Try to add the animation of a button being compressed
+easylang.online  for soring algo references!
+https://easylang.online/apps/tutorial_sorting.html
+*/
+
 var DEFAULT_COLOR = '#777';
 var COMPARE_COLOR = '#00F';
 var SWAP_COLOR = '#F00';
@@ -44,8 +53,6 @@ function drawArray(canvas, array, colors){ //canvas here is important? maybe we'
 	}
 }
 
-
-
 /*
 //OK SO FAR SO GOOD!
 generateArray(80);
@@ -65,14 +72,52 @@ selectionSort.onclick = function(){
     Animate.selectionSort();
     window.setInterval(function(){
         Animate.step();
-    }, 100);
+    }, 5);
 }
 insertSort.onclick = function(){
     var Animate = new AnimateArray(rectArray, canvas);
     Animate.insertionSort();
     window.setInterval(function(){
         Animate.step();
-    }, 500);
+    }, 5);
 }
 
+//So let's try to heap sort the random array, and then log its values before and after it.
+
+function logArray(a){
+	a.forEach(element => console.log(element));
+}
+
+generateArray(20);
+logArray(rectArray);
+
+//So idea behind heapsort: We need to build the heap first from an array.  What is a heap?  and how to represent a heap using
+//an array?  That is where heapify comes in!  
+
+//Now that the array is in a heap structure, we can start sorting it!  Code is in geeks for geeks
+
+
+//So now let's run heapSort on it!
+function heapify(array, n, i){
+	var largest = i;
+	var left = 2*i+1;
+	var right = 2*i+2;
+	if (left < n && array[left] > array[largest]){
+		largest = left;
+	}
+	if (right < n && array[right] > array[largest]){
+		largest = r;
+	}
+	if (largest != i){
+		var temp = array[i];
+		array[i] = array[largest];
+		array[largest] = temp;
+
+		heapify(array, n, largest);
+	}
+}
+
+heapify(rectArray, 20, 9);
+console.log("-------------")
+logArray(rectArray);
 
