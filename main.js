@@ -88,15 +88,28 @@ function logArray(a){
 	a.forEach(element => console.log(element));
 }
 
-generateArray(20);
+generateArray(200);
+
+
 logArray(rectArray);
+console.log("-------------");
+var Animate = new AnimateArray(rectArray, canvas);
+
+Animate.heapSort();
+
+window.setInterval(function(){
+	Animate.step();
+}, 1);
+
+logArray(Animate.array);
+
 
 //So idea behind heapsort: We need to build the heap first from an array.  What is a heap?  and how to represent a heap using
 //an array?  That is where heapify comes in!  
 
 //Now that the array is in a heap structure, we can start sorting it!  Code is in geeks for geeks
 
-
+/*
 //So now let's run heapSort on it!
 function heapify(array, n, i){
 	var largest = i;
@@ -116,8 +129,5 @@ function heapify(array, n, i){
 		heapify(array, n, largest);
 	}
 }
-
-heapify(rectArray, 20, 9);
-console.log("-------------")
-logArray(rectArray);
+*/
 
