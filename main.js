@@ -16,12 +16,34 @@ var pen = canvas.getContext('2d');
 var genArray = document.getElementById("genArray");
 var selectionSort = document.getElementById("sSort");
 var insertSort = document.getElementById("insertSort");
-
-
-
+var heapSort = document.getElementById("hSort");
+var speedValue = document.getElementById("speedValue");
+var outputSpeed = document.getElementById("speedOutput");
+var sizeValue = document.getElementById("sizeValue");
+var outputSize = document.getElementById("outputSize");
 var rectArray=[]; //just to test it.
 var rectArrayCopy =[];
 var rectColor = [];
+
+outputSpeed.innerHTML = speedValue.value;
+outputSize.innerHTML = sizeValue.value;
+var speed = speedValue.value;
+var size = sizeValue.value;
+generateArray(size);
+drawArray(canvas, rectArray, rectColor);
+//function to update the slider value each time I drag the slider.
+speedValue.oninput = function(){  //runs when I click on the thingy.
+	outputSpeed.innerHTML = speedValue.value;
+	speed = speedValue.value;
+
+}
+sizeValue.oninput = function(){
+	outputSize.innerHTML = sizeValue.value;
+	rectArray = [];
+	generateArray(sizeValue.value);
+	drawArray(canvas, rectArray, rectColor);
+}
+
 
 //function to generate a random number:
 function randomInteger(low, high){
@@ -72,14 +94,14 @@ selectionSort.onclick = function(){
     Animate.selectionSort();
     window.setInterval(function(){
         Animate.step();
-    }, 5);
+    }, speed);
 }
 insertSort.onclick = function(){
     var Animate = new AnimateArray(rectArray, canvas);
     Animate.insertionSort();
     window.setInterval(function(){
         Animate.step();
-    }, 5);
+    }, speed);
 }
 
 //So let's try to heap sort the random array, and then log its values before and after it.
@@ -88,20 +110,16 @@ function logArray(a){
 	a.forEach(element => console.log(element));
 }
 
-generateArray(200);
+heapSort.onclick = function(){
+	var Animate = new AnimateArray(rectArray, canvas);
+    Animate.heapSort();
+    window.setInterval(function(){
+        Animate.step();
+    }, speed);	
+}
 
 
-logArray(rectArray);
-console.log("-------------");
-var Animate = new AnimateArray(rectArray, canvas);
 
-Animate.heapSort();
-
-window.setInterval(function(){
-	Animate.step();
-}, 1);
-
-logArray(Animate.array);
 
 
 //So idea behind heapsort: We need to build the heap first from an array.  What is a heap?  and how to represent a heap using

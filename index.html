@@ -7,16 +7,32 @@
 <body>
     <div class = "wrapper">
         <h1> Here is the visualization of some of the most common CS algorithms that you will see.</h1>
+        <h2> Next think of a way to describe these algos, perhaps on a link on a different page.</h2>
         <ul>
+            <li>
+              <div class = "slidercontainer" >Speed (in millisecond): 
+                <input type = "range" min = "5" max = "1500" value = 500 id ="speedValue">
+              <div id = "speedOutput"></div>
+              </div>
+            </li>
+            <li>
+              <div class = "slidercontainer">
+                Array Size: 
+                <input type = "range" min = "10" max = "400" value = 150 id = "sizeValue"> 
+                <div id = "outputSize"></div>
+              </div>
+            </li>
             <li><a href="#home"><div id = "genArray">Generate Array</div></a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Sorting Algorithm</a>
+                
                 <div class="dropdown-content">
+                  
                   <a href="#"><div id = "sSort">Selection Sort</div></a>
                   <a href="#"><div id = "insertSort">Insertion Sort</div></a>
                   <a href="#">Quick Sort</a>
                   <a href="#">Merge Sort</a>
-                  <a href="#">Heap Sort</a>
+                  <a href="#"><div id = "hSort">Heap Sort</div></a>
                 </div>
             </li>
 
